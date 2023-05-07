@@ -1,3 +1,5 @@
+num = int(input("¿Qué factorial quieres ver?:"))
+
 def factorialFun(n):
     if n < 0:
         return None
@@ -9,5 +11,5 @@ def factorialFun(n):
         producto *= i
     return producto
 
-for n in range(1, 6): # probando
+for n in range(1, num+1): # probando
     print(n, factorialFun(n))
