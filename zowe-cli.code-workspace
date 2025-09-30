@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "../../zowe-cli"
+		}
+	],
+	"settings": {
+		"commentTranslate.hover.enabled": false
+	}
+}

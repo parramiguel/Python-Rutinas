@@ -13,12 +13,12 @@ dia_tonto = "hola Angelita, Feliz Cumpleaños"
 
 if __name__ == "__main__":
 
-    dia_nacimiento = input("Escribe tu fdía de nacimiento: ")
-    mes_nacimiento = input("Escribe tu fecha de nacimiento (año, mes, día): ")
-    año_nacimiento = input("Escribe tu fecha de nacimiento (año, mes, día): ")
+    dia_nacimiento = input("Escribe tu día de nacimiento: ")
+    mes_nacimiento = input("Escribe tu mes de nacimiento (año, mes, día): ")
+    año_nacimiento = input("Escribe tu año de nacimiento (año, mes, día): ")
 
 
-       print(sacar_datetime("08", "02"))
+    print(sacar_datetime("08", "02"))
 
 
     hoy = datetime.now()
