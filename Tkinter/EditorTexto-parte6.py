@@ -71,10 +71,37 @@ class Editor(tk.Tk):
 
 
     def _guardar(self):
-        pass
+        # Si ya se abrió previamente un archivo, lo sobreescribimos
+        if self.archivo_abierto:
+            # Salvamos el archivo (lo abrimos en modo escritura)
+            with open(self.archivo_abierto.name, 'w') as self.archivo:
+                # Leemos el contenido de la caja de texto
+                texto = self.campo_texto.get(1.0, tk.END)
+                # Escribimos el contenido al mismo archivo
+                self.archivo.write(texto)
+                # Cambiamos el nombre del título de la app
+                self.title(f'Editor Texto - {self.archivo.name}')
+        else:
+            self._guardar_como()
 
     def _guardar_como(self):
-        pass
+        # Salvamos el archivo actual como un nuevo archivo
+        self.archivo = asksaveasfilename(
+            defaultextension='txt',
+            filetypes=[('Archivos de Texto', '*.txt'), ('Todos los archivos', '*.*')]
+        )
+        if not self.archivo:
+            return
+        # Abrimos el archivo en modo escritura (write)
+        with open(self.archivo, 'w') as archivo:
+            # Leemos el contenido de la caja de texto
+            texto = self.campo_texto.get(1.0, tk.END)
+            # Escribimos el contenido al nuevo archivo
+            archivo.write(texto)
+            # Cambiamos el nombre del archivo
+            self.title(f'Editor Texto - {archivo.name}')
+            # Indicamos que hemos abierto un archivo
+            self.archivo_abierto = archivo
 
 if __name__ == '__main__':
     editor = Editor()
